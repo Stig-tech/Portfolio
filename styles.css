@@ -1,0 +1,382 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+html {
+   scroll-behavior: smooth;
+   scroll-padding-top: 84px;
+}
+
+body {
+   font-family: "Roboto", sans-serif;
+   background: #1c2526;
+   color: #e6e6e6;
+   line-height: 1.6;
+   padding-top: 60px;
+   min-height: 100vh;
+}
+
+/*Animation for fading in*/
+@keyframes FadeSlideIn {
+   0% {
+      opacity: 0;
+      transform: translateY(20px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+/*Apply fade in animation to elements with "animate" classification*/
+.animate {
+   opacity: 0;
+   animation: FadeSlideIn 1s ease-out forwards;
+}
+
+.header {
+   animation-delay: 0.1s;
+}
+.personal-info {
+   animation-delay: 0.2s;
+}
+.content-section:nth-child(1) {
+   animation-delay: 0.3s;
+}
+.content-section:nth-child(2) {
+   animation-delay: 0.4s;
+}
+.content-section:nth-child(3) {
+   animation-delay: 0.5s;
+}
+.content-section:nth-child(4) {
+   animation-delay: 0.6s;
+}
+.content-section:nth-child(5) {
+   animation-delay: 0.7s;
+}
+footer {
+   animation-delay: 0.8s;
+}
+
+/*Header styling*/
+.header {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   background: linear-gradient(
+      135deg,
+      rgba(28, 37, 38, 0.9) 0%,
+      rgba(17, 22, 23, 0.9) 100%
+   );
+   backdrop-filter: blur(8px); /*Applies amount blur*/
+   -webkit-backdrop-filter: blur(8px); /*For Safari*/
+   z-index: 30; /*Ensures header stays on top of all other content*/
+   padding: 1rem 0;
+}
+
+/*Header content, aligns logo and navigation*/
+.header-container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 0 2rem;
+   position: relative;
+}
+
+/*Header bottom border animation effect*/
+.header::after {
+   content: "";
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 2px;
+   background: linear-gradient(
+      to right,
+      rgba(204, 51, 51, 0),
+      rgba(204, 51, 51, 0.9),
+      rgba(204, 51, 51, 0)
+   );
+   background-size: 200% 100%;
+   animation: scrollRed 3s linear infinite; /*Animation scroll speed*/
+   z-index: 1;
+}
+
+/*Scroll animation for the bottom border of header*/
+@keyframes scrollRed {
+   0% {
+      background-position: 100% 0;
+   }
+   100% {
+      background-position: -100% 0;
+   }
+}
+
+/*Logo styling within header*/
+.header .logo {
+   font-size: 1.5rem;
+   color: #cc3333;
+   font-weight: 700;
+}
+
+/*Header logo icon*/
+.header-logo {
+   width: 32px;
+   height: 32px;
+   vertical-align: middle;
+}
+
+/*Nav menu styling*/
+.nav-menu {
+   display: flex;
+   list-style: none;
+   flex-direction: row-reverse; /*aligns nav items to right*/
+}
+
+/*Spacing between nav items*/
+.nav-menu li {
+   margin-left: 1.5rem;
+}
+
+/*Styling for nav links*/
+.nav-menu a {
+   color: #e6e6e6;
+   text-decoration: none;
+   font-weight: 400;
+   font-size: 0.9rem;
+   transition: color 0.3s ease; /*Color transitions on hover*/
+}
+
+/*Hover effect for nav links*/
+.nav-menu a:hover {
+   color: #cc3333;
+}
+
+/*Personal info section styling*/
+.personal-info {
+   position: fixed;
+   top: 5rem;
+   left: calc((100% - 1200px) / 2 + 2rem);   /*Ceneters personal info on left*/
+   width: 200px;
+   z-index: 20;
+   background: none;
+}
+
+/*Text alignment for personal info*/
+.personal-info-content {
+   text-align: left;
+}
+
+/*Personal info logo styling*/
+.personal-info .logo {
+   font-size: 1.75rem;
+   font-weight: 700;
+   color: #cc3333;
+   margin-bottom: 0.5rem;
+}
+
+/*Title styling for personal info*/
+.personal-info .title {
+   font-size: 1rem;
+   color: #b0bec5;
+   margin-bottom: 1.5rem;
+}
+
+.info-links {
+   list-style: none;
+}
+
+/*Link spacing in personal info*/
+.info-links li {
+   margin-bottom: 0.75rem;
+}
+
+/*Link styling in personal info*/
+.info-links a {
+   color: #cc3333;
+   text-decoration: none;
+   font-weight: 400;
+   font-size: 0.9rem;
+   transition: color 0.3s ease;
+}
+
+.info-links a:hover {
+   color: #e63939;
+}
+
+/*Main container for page content*/
+.page-container {
+   display: flex;
+   justify-content: flex-start;
+   align-items: flex-start;
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 0 2rem;
+   width: 100%;
+}
+
+.main-content {
+   flex: 1;
+   max-width: 800px;
+   margin-left: 220px;
+   padding: 3rem 0;
+}
+
+.content-section {
+   margin-bottom: 3rem;
+}
+
+h1 {
+   font-size: 1.5rem;
+   color: #cc3333;
+   margin-bottom: 1rem;
+   border-bottom: 2px solid #cc3333;
+   padding-bottom: 0.5rem;
+}
+
+.skills-list p {
+   margin-bottom: 0.5rem;
+}
+
+.skills-list strong {
+   color: #cc3333;
+}
+
+#experience .work-list,
+.projects-list,
+.education-list {
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+}
+
+#experience .work-item,
+.project-item,
+.education-item {
+   background: #2a3439;
+   padding: 1.5rem;
+   border-radius: 8px;
+}
+
+#experience .work-header,
+.project-header,
+.education-header {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   margin-bottom: 1rem;
+}
+
+#experience .work-header img,
+.project-header img,
+.education-header img {
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+}
+
+#experience .work-header h3,
+.project-header h3,
+.education-header h3 {
+   color: #cc3333;
+   font-size: 1.2rem;
+}
+
+#experience .work-header p,
+.project-header p,
+.education-header p {
+   color: #b0bec5;
+   font-size: 0.9rem;
+}
+
+.contact-form {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   max-width: 500px;
+}
+
+.contact-form label {
+   font-size: 1.1rem;
+   color: #cc3333;
+}
+
+.contact-form input,
+.contact-form textarea {
+   padding: 0.75rem;
+   background-color: #2a3439;
+   border: 1px solid #cc3333;
+   border-radius: 4px;
+   color: #e6e6e6;
+   font-size: 1rem;
+}
+
+/*Button styling for contact form*/
+.contact-form button {
+   padding: 0.75rem;
+   background-color: #cc3333;
+   border: none;
+   border-radius: 4px;
+   color: #e6e6e6;
+   font-weight: 700;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+   background-color: #e63939;
+}
+
+footer {
+   text-align: center;
+   padding: 1rem;
+   background: #1c2526;
+   color: #cc3333;
+   width: 100%;
+}
+
+@media (max-width: 992px) {   /*Mobile specific view #*/
+   body {
+      padding-top: 0;
+   }
+
+   .header {
+      display: none;
+   }
+
+   .header-container {
+      flex-direction: column;
+      gap: 1rem;
+   }
+
+   .nav-menu {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+   }
+
+   .personal-info {
+      position: static;
+      width: 100%;
+      padding: 2rem;
+      text-align: center;
+      left: 0;
+   }
+
+   .page-container {
+      flex-direction: column;
+      padding: 0;
+   }
+
+   .main-content {
+      margin-left: 0;
+      padding: 2rem;
+      max-width: 100%;
+   }
+}
